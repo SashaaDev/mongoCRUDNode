@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title Statistic
+    body
+        h1 Statistic about documents
+        if statistics
+            p Total documents: #{statistics.count}
+            p Unique names: #{statistics.uniqueNames.length}
+            p Type: #{statistics.type}
+        else
+            p No statistics available
+        a(href="/") Back

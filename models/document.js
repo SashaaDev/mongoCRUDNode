@@ -1,6 +1,6 @@
 const {getDb} = require('../config/config');
 
-const collection = 'documents';
+const collection = 'docs';
 
 const getCollection = async () => {
   const db = await getDb();
