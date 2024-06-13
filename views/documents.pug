@@ -6,7 +6,7 @@ html
         h1 Documents List
         ul
           each document in documents
-              li= document.name
+              li='Name: ' + document.name + '; Type:' + document.type
 
         h2 Add New Document
         form(action="/insertOne" method="post" style="display: flex; flex-direction: column;")
@@ -16,87 +16,10 @@ html
                 p
                 label(for="description") Description:
                 input(type="text" name="description" style="width: 70%;" required)
+                p
+                label(for="type") Type:
+                input(type="text" name="type" style="width: 70%;")
             button(type="submit" style="width: 15%;") Add Document
         div(style="margin-bottom: 3em;")
 
-        h2 Add Many Documents
-        form(action="/insertMany" method="post" style="display: flex; flex-direction: column;")
-            div(style="display: flex; flex-direction: column; border:1px solid black; max-width: 30%; padding: 10px; margin-bottom: 10px;")
-                h3 First document
-                label(for="nameFirst") Name:
-                input(type="text" name="documents[0][name]" style="width: 70%;" required)
-                p
-                label(for="descriptionFirst") Description:
-                input(type="text" name="documents[0][description]" style="width: 70%;" required)
-            div(style="display: flex; flex-direction: column; border:1px solid black; max-width: 30%; padding: 10px; margin-bottom: 10px;")
-                h3 Second document
-                label(for="nameSecond") Name:
-                input(type="text" name="documents[1][name]" style="width: 70%;" required)
-                p
-                label(for="descriptionSecond") Description:
-                input(type="text" name="documents[1][description]" style="width: 70%;" required)
-            button(type="submit" style="width: 15%;") Add Documents
-        div(style="margin-bottom: 3em;")
-
-        h2 Update One Document
-        form(action="/updateOne" method="post" style="display: flex; flex-direction: column;")
-            label(for="currentName") Current Name:
-            input(type="text" name="currentName" style="width: 22.5%; margin-bottom: 10px" required)
-            div(style="display: flex; flex-direction: column; border:1px solid black; max-width: 30%; padding: 10px; margin-bottom: 10px;")
-                label(for="newName") New Name:
-                input(type="text" name="newName" style="width: 70%;")
-                label(for="newDescription") New Description:
-                input(type="text" name="newDescription" style="width: 70%;")
-            button(type="submit" style="width: 15%;") Update Document
-        div(style="margin-bottom: 3em;")
-
-        h2 Update Many Documents
-        form(action="/updateMany" method="post" style="display: flex; flex-direction: column;")
-            label(for="currentName") Current Name:
-            input(type="text" name="currentName" style="width: 22.5%; margin-bottom: 10px" required)
-            div(style="display: flex; flex-direction: column; border:1px solid black; max-width: 30%; padding: 10px; margin-bottom: 10px;")
-                label(for="newName") New Name:
-                input(type="text" name="newName" style="width: 70%;")
-                label(for="description") New Description:
-                input(type="text" name="newDescription" style="width: 70%;")
-            button(type="submit" style="width: 15%;") Update Documents
-        div(style="margin-bottom: 3em;")
-
-        h2 Replace One Document
-        form(action="/replaceOne" method="post" style="display: flex; flex-direction: column;")
-            label(for="currentName") Current Name:
-            input(type="text" name="currentName" style="width: 22.5%; margin-bottom: 10px" required)
-            div(style="display: flex; flex-direction: column; border:1px solid black; max-width: 30%; padding: 10px; margin-bottom: 10px;")
-                label(for="newName") New Name:
-                input(type="text" name="newName" style="width: 70%;" required)
-                label(for="description") New Description:
-                input(type="text" name="newDescription" style="width: 70%;" required)
-            button(type="submit" style="width: 15%;") Replace Document
-        div(style="margin-bottom: 3em;")
-
-        h2 Delete One Document
-        form(action="/deleteOne" method="post" style="display: flex; flex-direction: column;")
-            label(for="name") Name:
-            input(type="text" name="name" style="width: 22.5%; margin-bottom: 10px" required)
-            button(type="submit" style="width: 15%;") Delete Document
-        div(style="margin-bottom: 3em;")
-
-        h2 Delete Many Documents
-        form(action="/deleteMany" method="post" style="display: flex; flex-direction: column;")
-            label(for="names") Names (comma-separated):
-            input(type="text" name="names" style="width: 22.5%; margin-bottom: 10px" required)
-            button(type="submit" style="width: 15%;") Delete Documents
-        div(style="margin-bottom: 3em;")
-
-        h2 Find Documents
-        form(action="/find" method="post" style="display: flex; flex-direction: column;")
-            label(for="names") Names (comma-separated):
-            input(type="text" name="names" style="width: 22.5%; margin-bottom: 10px" required)
-            button(type="submit" style="width: 15%;") Find Documents
-        div(style="margin-bottom: 3em;")
-
-        if foundDocuments
-            h2 Found Documents
-            ul
-              each document in foundDocuments
-                  li= document.name
+        a(href="/statistic") Statistic
